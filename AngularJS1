@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Angular js Full name Eg</title>
+<!-- Load the AngularJS library -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+<!-- Use the ng-app directive to define the myApp module -->
+<div ng-app="myApp">
+
+  <!-- Use the ng-controller directive to define the myCtrl controller -->
+  <div ng-controller="myCtrl">
+
+    <!-- Use the ng-model directive to bind the input fields to the variables -->
+    <p>First Name: <input type="text" ng-model="firstName"></p>
+    <p>Last Name: <input type="text" ng-model="lastName"></p>
+
+    <!-- Add a button -->
+    <button ng-click="displayFullName()">Display Full Name</button>
+
+    <!-- Display the full name here -->
+    <p>Full Name: <span>{{fullName}}</span></p>
+
+  </div>
+
+</div>
+
+<script>
+  // Define the myApp module
+  var app = angular.module('myApp', []);
+
+  // Define the myCtrl controller
+  app.controller('myCtrl', function($scope) {
+    // Initialize the first and last name variables
+    $scope.firstName = "";
+    $scope.lastName = "";
+
+    // Define a function to return the full name
+    $scope.displayFullName = function() {
+      $scope.fullName = $scope.firstName + " " + $scope.lastName;
+    };
+  });
+</script>
+</body>
+</html>
